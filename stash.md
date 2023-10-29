@@ -43,3 +43,44 @@ But it will not stash:
 ```
 So if we add a third file to our example above, but don't stage it (i.e. we don't run git add), git stash won't stash it.
 ```
+
+![](./assets/gits-stash-4.png)
+
+<br />
+
+#### Note: 
+Adding the `-u` option (or --include-untracked) tells git stash to `also stash your untracked files`:
+
+![](./assets/git-stash-5.png)
+
+#### Note:
+
+You can `include changes to ignored files` as well by passing the `-a` option (or --all) when running git stash.
+
+<br />
+
+### Managing multiple stashes
+1. You aren't limited to a single stash. You can run git stash several times to create multiple stashes, 
+2. `git stash list` to view them. 
+
+![](./assets/git-stash-6.png)
+
+3. To provide a bit more context, it's good practice to annotate your stashes with a description, using `git stash save "message"`:
+
+![](./assets/git-stash-7.png)
+
+4. By default, git stash pop will re-apply the most recently created stash: stash@{0} .... 
+You can choose which stash to re-apply by passing its identifier as the last argument, for example:
+
+![](./assets/git-stash-8.png)
+
+<br />
+
+### Cleaning up your stash
+If you decide you no longer need a particular stash, you can delete it with git stash drop:
+
+![](./assets/git-stash-9.png)
+
+Or you can delete all of your stashes with:
+
+![](./assets/git-stash-10.png)
