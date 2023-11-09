@@ -59,7 +59,7 @@ inquirer.prompt([
     // await exec(`git clone --depth 1 ${git_repo} ${projectPath} --quiet`);
 }).then((answer) => {
 
-    fs.readFile(currentPath + '/package-lock.json', 'utf-8', (err, data) => {
+    return fs.readFile(currentPath + '/package-lock.json', 'utf-8', (err, data) => {
         let currentData = JSON.parse(data)
         let versionArr = currentData.version.split('.');
 
@@ -89,7 +89,9 @@ inquirer.prompt([
             if (err) throw err
             console.log('changed package lock version', oldVersion, "-->", newVersion)
 
-            await exec(`git commit -m "${oldVersion, "-->", newVersion}"`)
+            setTimeout(async () => {
+                await exec(`git commit -am "${oldVersion, "-->", newVersion}"`)
+            }, 1500)
 
         })
     });
