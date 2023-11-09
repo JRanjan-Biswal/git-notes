@@ -91,7 +91,7 @@ inquirer.prompt([
 
             let commit_msg = oldVersion + " --> " + newVersion
             setTimeout(async () => {
-                let test = await exec(`git commit -m "${commit_msg}"`);
+                let test = await exec(`git commit -am "${commit_msg}"`);
                 if(test) {
                     await exec(`git push`)
                 }
