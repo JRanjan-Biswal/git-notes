@@ -89,9 +89,10 @@ inquirer.prompt([
             if (err) throw err
             console.log('changed package lock version', oldVersion, "-->", newVersion)
 
+            let commit_msg = oldVersion + "-->" + newVersion
             setTimeout(async () => {
-                await exec(`git commit -am "${oldVersion, "-->", newVersion}"`)
-            }, 1500)
+                await exec(`git commit -am "${commit_msg}"`)
+            }, 1000)
 
         })
     });
