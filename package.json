@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "push": "npm explore version-push -- npm run push"
+    "push": "node ./node_modules/version-push/index.js"
   },
   "keywords": [],
   "author": "",
